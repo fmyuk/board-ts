@@ -1,7 +1,8 @@
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
+import Room from "../components/Room/Room";
 
-const Room = () => {
+const RoomList = () => {
   const selector = useSelector(state => state);
   const rooms = getRooms(selector);
 
@@ -10,7 +11,7 @@ const Room = () => {
       <div>
         {rooms.length > 0 && (
           rooms.map(room => (
-            <RoomCard
+            <Room
               key={room.id}
               id={room.id}
               name={room.name}
@@ -22,4 +23,4 @@ const Room = () => {
   );
 };
 
-export default Room;
+export default RoomList;
