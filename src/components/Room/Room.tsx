@@ -5,6 +5,12 @@ import ListItem from '@material-ui/core/ListItem';
 import Divider from '@material-ui/core/Divider';
 import ListItemText from '@material-ui/core/ListItemText';
 
+type RoomProps = {
+  id: string,
+  title: string,
+  previousText: string
+};
+
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
@@ -18,7 +24,7 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 );
 
-const Room = (props) => {
+const Room = (props: RoomProps) => {
   const classes = useStyles();
 
   return (

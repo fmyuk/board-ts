@@ -12,9 +12,9 @@ const RoomList = () => {
         {rooms.length > 0 && (
           rooms.map(room => (
             <Room
-              key={room.id}
               id={room.id}
-              name={room.name}
+              title={room.title}
+              previousText={room.previousText}
             />
           ))
         )}
