@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import Room from "../components/Room/Room";
+import { getRooms } from "../reducks/room/selectors";
 
 const RoomList = () => {
   const selector = useSelector(state => state);
