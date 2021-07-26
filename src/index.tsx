@@ -2,12 +2,25 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import * as History from "history";
 import reportWebVitals from './reportWebVitals';
+import { Provider } from 'react-redux';
+import { ConnectedRouter } from 'connected-react-router';
+import { MuiThemeProvider } from '@material-ui/core';
+import createStore from './reducks/store/store';
+import { theme } from "./assets/theme";
+
+const history = History.createBrowserHistory();
+export const store = createStore(history);
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <Provider store={store}>
+    <ConnectedRouter history={history}>
+      <MuiThemeProvider theme={theme}>
+        <App />
+      </MuiThemeProvider>
+    </ConnectedRouter>
+  </Provider>,
   document.getElementById('root')
 );
 

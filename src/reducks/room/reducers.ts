@@ -1,7 +1,7 @@
 import * as Actions from "./actions";
 import initialState from "../store/initialState";
 
-export const roomReducer = (state = initialState.room, action) => {
+export const roomReducer = (state = initialState.room, action: Actions.RoomAction) => {
   switch (action.type) {
     case Actions.DELETE_ROOM:
       return {

@@ -6,15 +6,13 @@ import {
 import { connectRouter, routerMiddleware} from "connected-react-router";
 import thunk from "redux-thunk";
 import { createBrowserHistory } from "history";
+import { roomReducer } from "../room/reducers";
 
-export const history = createBrowserHistory();
-
-export default function createStore() {
+export default function createStore(history: ReturnType<typeof createBrowserHistory>) {
   return reduxCreateStore(
     combineReducers({
-      rooms: RoomsReducer,
-      router: connectRouter(history),
-      users: UsersReducer
+      rooms: roomReducer,
+      router: connectRouter(history)
     }),
     applyMiddleware(
       routerMiddleware(history),

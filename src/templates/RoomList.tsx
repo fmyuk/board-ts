@@ -2,9 +2,10 @@ import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import Room from "../components/Room/Room";
 import { getRooms } from "../reducks/room/selectors";
+import { Rooms } from "../reducks/room/actions";
 
 const RoomList = () => {
-  const selector = useSelector(state => state);
+  const selector = useSelector((state: Rooms) => state);
   const rooms = getRooms(selector);
 
   return (
