@@ -1,12 +1,17 @@
 import React, { useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Room from "../components/Room/Room";
 import { getRooms } from "../reducks/room/selectors";
 import { Rooms } from "../reducks/room/actions";
 
 const RoomList = () => {
+  const dispatch = useDispatch();
   const selector = useSelector((state: Rooms) => state);
   const rooms = getRooms(selector);
+
+  useEffect(() => {
+    dispatch(fetch());
+  }, []);
 
   return (
     <section>
