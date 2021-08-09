@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Room from "../components/Room/Room";
 import { getRooms } from "../reducks/room/selectors";
 import { Rooms } from "../reducks/room/actions";
+import { fetchRooms } from "../reducks/room/operations";
 
 const RoomList = () => {
   const dispatch = useDispatch();
@@ -10,7 +11,7 @@ const RoomList = () => {
   const rooms = getRooms(selector);
 
   useEffect(() => {
-    dispatch(fetch());
+    dispatch(fetchRooms());
   }, []);
 
   return (

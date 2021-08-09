@@ -1,12 +1,15 @@
-import { fetchRoomsAction } from "./actions"
+import { Dispatch } from "react";
+import { fetchRoomsAction, Rooms } from "./actions"
 
-export const fetch = () => {
-  return (dispatch, getState) => {
-    const prevRooms = getState().rooms.roomList;
+export const fetchRooms = () => {
+  return (dispatch: Dispatch<any>, getState: () => Rooms) => {
+    const prevRooms = getState().room.roomList;
     const RoomList = [];
-    const room = { id = 0, title = "room0", previousText = "sample" }
+    const room = { id: "0", title: "room0", previousText: "sample" }
+    prevRooms.forEach(prevRoom => {
+      RoomList.push(prevRoom);
+    });
     RoomList.push(room);
-    RoomList.push(prevRooms);
     dispatch(fetchRoomsAction(RoomList));
   }
-}
+};
